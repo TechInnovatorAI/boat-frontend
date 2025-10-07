@@ -1,0 +1,113 @@
+<?php
+
+return [
+    // Navigation
+    'nav.home' => 'Startseite',
+    'nav.blog' => 'Blog',
+    'nav.contact' => 'Kontakt',
+    'nav.language' => 'Sprache',
+
+    // Home Page
+    'home.hero.title' => 'Willkommen bei Boat Website',
+    'home.hero.subtitle' => 'Ihr ultimatives Ziel für Bootsinformationen, Dienstleistungen und Community. Entdecken Sie die Welt des Bootfahrens mit uns.',
+    'home.hero.explore_blog' => 'Blog Erkunden',
+    'home.hero.get_in_touch' => 'Kontakt Aufnehmen',
+    
+    'home.features.title' => 'Warum Uns Wählen',
+    'home.features.subtitle' => 'Wir bieten umfassende Bootsdienstleistungen und Informationen, um Ihnen zu helfen, die Gewässer mit Vertrauen zu navigieren.',
+    'home.features.expert.title' => 'Expertenwissen',
+    'home.features.expert.description' => 'Unser Team von Bootsexperten bietet präzise, aktuelle Informationen und Beratung.',
+    'home.features.quality.title' => 'Qualitätsservice',
+    'home.features.quality.description' => 'Wir sind verpflichtet, hochwertige Dienstleistungen zu bieten, die Ihren Bootsbedürfnissen entsprechen.',
+    'home.features.community.title' => 'Community',
+    'home.features.community.description' => 'Treten Sie unserer lebendigen Community von Bootsenthusiasten bei und teilen Sie Ihre Erfahrungen.',
+    
+    'home.blog.title' => 'Neueste von Unserem Blog',
+    'home.blog.subtitle' => 'Bleiben Sie mit den neuesten Bootstipps, Nachrichten und Einblicken unserer Experten auf dem Laufenden.',
+    'home.blog.read_more' => 'Weiterlesen',
+    'home.blog.view_all' => 'Alle Beiträge Anzeigen',
+    
+    'home.cta.title' => 'Bereit zu Starten?',
+    'home.cta.subtitle' => 'Treten Sie unserer Community heute bei und beginnen Sie Ihre Bootsreise mit Expertenberatung und Unterstützung.',
+    'home.cta.contact' => 'Jetzt Kontaktieren',
+
+    // Contact Page
+    'contact.hero.title' => 'Kontaktieren Sie Uns',
+    'contact.hero.subtitle' => 'Nehmen Sie Kontakt mit unserem Team auf. Wir sind hier, um bei all Ihren Bootsbedürfnissen und -fragen zu helfen.',
+    'contact.form.title' => 'Senden Sie Uns eine Nachricht',
+    'contact.form.name' => 'Vollständiger Name',
+    'contact.form.email' => 'E-Mail-Adresse',
+    'contact.form.subject' => 'Betreff',
+    'contact.form.message' => 'Nachricht',
+    'contact.form.send' => 'Nachricht Senden',
+    'contact.form.success' => 'Vielen Dank für Ihre Nachricht! Wir werden uns bald bei Ihnen melden.',
+    'contact.form.required' => 'Dieses Feld ist erforderlich.',
+    'contact.form.email_invalid' => 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+    'contact.form.max_length' => 'Dieses Feld darf :max Zeichen nicht überschreiten.',
+    
+    'contact.info.title' => 'Kontakt Aufnehmen',
+    'contact.info.subtitle' => 'Wir sind hier, um bei all Ihren Bootsfragen zu helfen. Kontaktieren Sie uns über einen der unten stehenden Kanäle.',
+    'contact.info.email' => 'E-Mail',
+    'contact.info.phone' => 'Telefon',
+    'contact.info.address' => 'Adresse',
+    'contact.info.jira.title' => '🚀 Zukünftige Jira-Integration',
+    'contact.info.jira.description' => 'Dieses Kontaktformular ist für die zukünftige Integration mit Jira Service Management vorbereitet. Alle übermittelten Nachrichten werden automatisch in Jira-Tickets für effizientes Tracking und Management konvertiert.',
+    
+    'contact.faq.title' => 'Häufig Gestellte Fragen',
+    'contact.faq.subtitle' => 'Finden Sie Antworten auf häufige Fragen zu unseren Dienstleistungen.',
+    'contact.faq.response.title' => 'Wie schnell antworten Sie auf Anfragen?',
+    'contact.faq.response.answer' => 'Wir antworten normalerweise auf alle Anfragen innerhalb von 24 Stunden an Werktagen. Für dringende Angelegenheiten rufen Sie uns bitte direkt an.',
+    'contact.faq.emergency.title' => 'Bieten Sie Notfalldienstleistungen an?',
+    'contact.faq.emergency.answer' => 'Ja, wir bieten 24/7 Notfallunterstützung für dringende Bootsprobleme. Kontaktieren Sie unsere Notfallhotline für sofortige Hilfe.',
+    'contact.faq.info.title' => 'Welche Informationen sollte ich in meine Nachricht aufnehmen?',
+    'contact.faq.info.answer' => 'Bitte geben Sie so viele Details wie möglich über Ihre Anfrage an, einschließlich Bootstyp, spezifische Probleme und relevante Fotos oder Dokumentation.',
+
+    // Blog Page
+    'blog.hero.title' => 'Unser Blog',
+    'blog.hero.subtitle' => 'Entdecken Sie die neuesten Einblicke, Tipps und Nachrichten aus der Welt des Bootfahrens und der Webentwicklung.',
+    'blog.newsletter.title' => 'Auf dem Laufenden Bleiben',
+    'blog.newsletter.subtitle' => 'Abonnieren Sie unseren Newsletter, um die neuesten Blogbeiträge und Bootstipps in Ihrem Posteingang zu erhalten.',
+    'blog.newsletter.placeholder' => 'E-Mail eingeben',
+    'blog.newsletter.subscribe' => 'Abonnieren',
+    'blog.read_more' => 'Weiterlesen',
+    'blog.by' => 'Von',
+    'blog.categories.title' => 'Nach Kategorie Erkunden',
+    'blog.categories.subtitle' => 'Finden Sie Inhalte, die Ihren Interessen entsprechen.',
+    'blog.categories.laravel' => 'Laravel',
+    'blog.categories.laravel.desc' => 'Laravel-Entwicklungstipps und -tutorials',
+    'blog.categories.webdev' => 'Webentwicklung',
+    'blog.categories.webdev.desc' => 'Moderne Webentwicklungspraktiken',
+    'blog.categories.performance' => 'Leistung',
+    'blog.categories.performance.desc' => 'Optimierungs- und Leistungstipps',
+    'blog.categories.best_practices' => 'Beste Praktiken',
+    'blog.categories.best_practices.desc' => 'Branchenstandards und beste Praktiken',
+
+    // Blog Post
+    'blog.post.related.title' => 'Verwandte Artikel',
+    'blog.post.related.subtitle' => 'Erkunden Sie unseren Blog weiter mit diesen verwandten Beiträgen.',
+    'blog.post.author.about' => 'Über',
+    'blog.post.author.bio' => 'ist ein leidenschaftlicher Entwickler und Bootsenthusiast mit jahrelanger Erfahrung in der Webentwicklung und maritimen Aktivitäten. Sie lieben es, Wissen zu teilen und anderen zu helfen, die Gewässer sowohl des Codings als auch des Bootfahrens zu navigieren.',
+    'blog.post.nav.back' => 'Zurück zum Blog',
+    'blog.post.nav.share' => 'Teilen',
+    'blog.post.nav.bookmark' => 'Lesezeichen',
+
+    // Footer
+    'footer.title' => 'Boat Website',
+    'footer.description' => 'Ihre vertrauenswürdige Quelle für Bootsinformationen und -dienstleistungen.',
+    'footer.quick_links' => 'Schnelle Links',
+    'footer.contact_info' => 'Kontaktinformationen',
+    'footer.copyright' => 'Alle Rechte vorbehalten.',
+
+    // Common
+    'common.loading' => 'Laden...',
+    'common.error' => 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.',
+    'common.success' => 'Erfolg!',
+    'common.cancel' => 'Abbrechen',
+    'common.save' => 'Speichern',
+    'common.edit' => 'Bearbeiten',
+    'common.delete' => 'Löschen',
+    'common.confirm' => 'Bestätigen',
+    'common.back' => 'Zurück',
+    'common.next' => 'Weiter',
+    'common.previous' => 'Vorherige',
+];

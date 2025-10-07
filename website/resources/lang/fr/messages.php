@@ -1,0 +1,113 @@
+<?php
+
+return [
+    // Navigation
+    'nav.home' => 'Accueil',
+    'nav.blog' => 'Blog',
+    'nav.contact' => 'Contact',
+    'nav.language' => 'Langue',
+
+    // Home Page
+    'home.hero.title' => 'Bienvenue sur Boat Website',
+    'home.hero.subtitle' => 'Votre destination ultime pour les informations, services et communauté de bateaux. Découvrez le monde de la navigation avec nous.',
+    'home.hero.explore_blog' => 'Explorer le Blog',
+    'home.hero.get_in_touch' => 'Nous Contacter',
+    
+    'home.features.title' => 'Pourquoi Nous Choisir',
+    'home.features.subtitle' => 'Nous fournissons des services et informations complets sur les bateaux pour vous aider à naviguer en toute confiance.',
+    'home.features.expert.title' => 'Connaissance Expert',
+    'home.features.expert.description' => 'Notre équipe d\'experts en navigation fournit des informations précises et à jour.',
+    'home.features.quality.title' => 'Service de Qualité',
+    'home.features.quality.description' => 'Nous nous engageons à fournir des services de haute qualité qui répondent à vos besoins de navigation.',
+    'home.features.community.title' => 'Communauté',
+    'home.features.community.description' => 'Rejoignez notre communauté dynamique d\'enthousiastes de bateaux et partagez vos expériences.',
+    
+    'home.blog.title' => 'Dernières de Notre Blog',
+    'home.blog.subtitle' => 'Restez à jour avec les derniers conseils, nouvelles et informations de navigation de nos experts.',
+    'home.blog.read_more' => 'Lire Plus',
+    'home.blog.view_all' => 'Voir Tous les Articles',
+    
+    'home.cta.title' => 'Prêt à Commencer?',
+    'home.cta.subtitle' => 'Rejoignez notre communauté aujourd\'hui et commencez votre voyage de navigation avec des conseils et un soutien d\'experts.',
+    'home.cta.contact' => 'Nous Contacter Maintenant',
+
+    // Contact Page
+    'contact.hero.title' => 'Nous Contacter',
+    'contact.hero.subtitle' => 'Contactez notre équipe. Nous sommes là pour vous aider avec tous vos besoins et questions de navigation.',
+    'contact.form.title' => 'Envoyez-nous un Message',
+    'contact.form.name' => 'Nom Complet',
+    'contact.form.email' => 'Adresse Email',
+    'contact.form.subject' => 'Sujet',
+    'contact.form.message' => 'Message',
+    'contact.form.send' => 'Envoyer le Message',
+    'contact.form.success' => 'Merci pour votre message! Nous vous répondrons bientôt.',
+    'contact.form.required' => 'Ce champ est obligatoire.',
+    'contact.form.email_invalid' => 'Veuillez entrer une adresse email valide.',
+    'contact.form.max_length' => 'Ce champ ne peut pas dépasser :max caractères.',
+    
+    'contact.info.title' => 'Nous Contacter',
+    'contact.info.subtitle' => 'Nous sommes là pour vous aider avec toutes vos questions de navigation. Contactez-nous par l\'un des canaux ci-dessous.',
+    'contact.info.email' => 'Email',
+    'contact.info.phone' => 'Téléphone',
+    'contact.info.address' => 'Adresse',
+    'contact.info.jira.title' => '🚀 Intégration Future Jira',
+    'contact.info.jira.description' => 'Ce formulaire de contact est préparé pour une future intégration avec Jira Service Management. Tous les messages soumis seront automatiquement convertis en tickets Jira pour un suivi et une gestion efficaces.',
+    
+    'contact.faq.title' => 'Questions Fréquemment Posées',
+    'contact.faq.subtitle' => 'Trouvez des réponses aux questions courantes sur nos services.',
+    'contact.faq.response.title' => 'À quelle rapidité répondez-vous aux demandes?',
+    'contact.faq.response.answer' => 'Nous répondons généralement à toutes les demandes dans les 24 heures pendant les jours ouvrables. Pour les questions urgentes, veuillez nous appeler directement.',
+    'contact.faq.emergency.title' => 'Offrez-vous des services d\'urgence?',
+    'contact.faq.emergency.answer' => 'Oui, nous fournissons un support d\'urgence 24/7 pour les problèmes urgents de navigation. Contactez notre ligne d\'urgence pour une assistance immédiate.',
+    'contact.faq.info.title' => 'Quelles informations dois-je inclure dans mon message?',
+    'contact.faq.info.answer' => 'Veuillez fournir autant de détails que possible sur votre demande, y compris le type de bateau, les problèmes spécifiques, et toute photo ou documentation pertinente.',
+
+    // Blog Page
+    'blog.hero.title' => 'Notre Blog',
+    'blog.hero.subtitle' => 'Découvrez les dernières idées, conseils et nouvelles du monde de la navigation et du développement web.',
+    'blog.newsletter.title' => 'Restez à Jour',
+    'blog.newsletter.subtitle' => 'Abonnez-vous à notre newsletter pour recevoir les derniers articles de blog et conseils de navigation dans votre boîte de réception.',
+    'blog.newsletter.placeholder' => 'Entrez votre email',
+    'blog.newsletter.subscribe' => 'S\'abonner',
+    'blog.read_more' => 'Lire Plus',
+    'blog.by' => 'Par',
+    'blog.categories.title' => 'Explorer par Catégorie',
+    'blog.categories.subtitle' => 'Trouvez du contenu qui correspond à vos intérêts.',
+    'blog.categories.laravel' => 'Laravel',
+    'blog.categories.laravel.desc' => 'Conseils et tutoriels de développement Laravel',
+    'blog.categories.webdev' => 'Développement Web',
+    'blog.categories.webdev.desc' => 'Pratiques modernes de développement web',
+    'blog.categories.performance' => 'Performance',
+    'blog.categories.performance.desc' => 'Conseils d\'optimisation et de performance',
+    'blog.categories.best_practices' => 'Meilleures Pratiques',
+    'blog.categories.best_practices.desc' => 'Standards de l\'industrie et meilleures pratiques',
+
+    // Blog Post
+    'blog.post.related.title' => 'Articles Connexes',
+    'blog.post.related.subtitle' => 'Continuez à explorer notre blog avec ces articles connexes.',
+    'blog.post.author.about' => 'À propos de',
+    'blog.post.author.bio' => 'est un développeur passionné et passionné de navigation avec des années d\'expérience en développement web et activités maritimes. Ils aiment partager leurs connaissances et aider les autres à naviguer dans les eaux du codage et de la navigation.',
+    'blog.post.nav.back' => 'Retour au Blog',
+    'blog.post.nav.share' => 'Partager',
+    'blog.post.nav.bookmark' => 'Marque-page',
+
+    // Footer
+    'footer.title' => 'Boat Website',
+    'footer.description' => 'Votre source fiable d\'informations et de services de bateaux.',
+    'footer.quick_links' => 'Liens Rapides',
+    'footer.contact_info' => 'Informations de Contact',
+    'footer.copyright' => 'Tous droits réservés.',
+
+    // Common
+    'common.loading' => 'Chargement...',
+    'common.error' => 'Une erreur s\'est produite. Veuillez réessayer.',
+    'common.success' => 'Succès!',
+    'common.cancel' => 'Annuler',
+    'common.save' => 'Sauvegarder',
+    'common.edit' => 'Modifier',
+    'common.delete' => 'Supprimer',
+    'common.confirm' => 'Confirmer',
+    'common.back' => 'Retour',
+    'common.next' => 'Suivant',
+    'common.previous' => 'Précédent',
+];
