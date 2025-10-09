@@ -41,6 +41,7 @@ return [
     'contact.form.message' => 'Message',
     'contact.form.send' => 'Send Message',
     'contact.form.success' => 'Thank you for your message! We will get back to you soon.',
+    'contact.form.error' => 'Failed to send email. Please try again.',
     'contact.form.required' => 'This field is required.',
     'contact.form.email_invalid' => 'Please enter a valid email address.',
     'contact.form.max_length' => 'This field cannot exceed :max characters.',

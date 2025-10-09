@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use App\Services\MailService;
 
 class ContactController extends Controller
 {
@@ -46,7 +47,21 @@ class ContactController extends Controller
         // $jiraService = new JiraServiceManagement();
         // $jiraService->createTicket($request->all());
 
-            return redirect()->route('contact')
-                ->with('success', trans('messages.contact.form.success'));
+        // Send email to admin
+        $subject = "New Contact Message from {$request->name}";
+        $body = "
+            <h3>Contact Message</h3>
+            <p><strong>Name:</strong> {$request->name}</p>
+            <p><strong>Email:</strong> {$request->email}</p>
+            <p><strong>Subject:</strong> {$request->subject}</p>
+            <p><strong>Message:</strong><br>{$request->message}</p>
+        ";
+
+        $sent = MailService::sendContactMail(config('mail.from.address'), $subject, $body);
+
+        return redirect()->route('contact')
+            ->with($sent ? 'success' : 'error', $sent
+                ? trans('messages.contact.form.success')
+                : trans('messages.contact.form.error'));
     }
 }

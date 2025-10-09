@@ -41,6 +41,7 @@ return [
     'contact.form.message' => 'Message',
     'contact.form.send' => 'Trametter Message',
     'contact.form.success' => 'Grazia per voss message! Nus respunderan prest.',
+    'contact.form.error' => 'Trametter email è stà senza success. Per plaschair empruvar danovamain.',
     'contact.form.required' => 'Quest champ è obligatoric.',
     'contact.form.email_invalid' => 'Per plaschair endata ina adressa email valida.',
     'contact.form.max_length' => 'Quest champ na po betg surpassar :max caracters.',

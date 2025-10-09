@@ -41,6 +41,7 @@ return [
     'contact.form.message' => 'Messaggio',
     'contact.form.send' => 'Invia Messaggio',
     'contact.form.success' => 'Grazie per il vostro messaggio! Vi risponderemo presto.',
+    'contact.form.error' => 'Invio email fallito. Riprovate.',
     'contact.form.required' => 'Questo campo è obbligatorio.',
     'contact.form.email_invalid' => 'Inserite un indirizzo email valido.',
     'contact.form.max_length' => 'Questo campo non può superare :max caratteri.',

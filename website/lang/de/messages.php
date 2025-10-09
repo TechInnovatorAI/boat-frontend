@@ -41,6 +41,7 @@ return [
     'contact.form.message' => 'Nachricht',
     'contact.form.send' => 'Nachricht Senden',
     'contact.form.success' => 'Vielen Dank für Ihre Nachricht! Wir werden uns bald bei Ihnen melden.',
+    'contact.form.error' => 'E-Mail konnte nicht gesendet werden. Bitte versuchen Sie es erneut.',
     'contact.form.required' => 'Dieses Feld ist erforderlich.',
     'contact.form.email_invalid' => 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
     'contact.form.max_length' => 'Dieses Feld darf :max Zeichen nicht überschreiten.',
