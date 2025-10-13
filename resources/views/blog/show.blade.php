@@ -66,50 +66,26 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @forelse($relatedPosts as $relatedPost)
             <article class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop" alt="Related post" class="w-full h-48 object-cover">
+                <img src="{{ $relatedPost['featured_image'] }}" alt="{{ $relatedPost['title'] }}" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                        Building Modern Web Applications
+                        {{ $relatedPost['title'] }}
                     </h3>
                     <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Discover the latest trends and best practices for creating modern, responsive web applications.
+                        {{ $relatedPost['excerpt'] }}
                     </p>
-                    <a href="{{ route('blog.show', 'building-modern-web-applications') }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold">
-                        Read More →
+                    <a href="{{ route('blog.show', ['slug' => $relatedPost['slug'], 'lang' => $language]) }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold">
+                        {{ trans('messages.blog.read_more') }} →
                     </a>
                 </div>
             </article>
-
-            <article class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop" alt="Related post" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                        Laravel Best Practices
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Essential best practices for Laravel development to write clean, maintainable code.
-                    </p>
-                    <a href="{{ route('blog.show', 'laravel-best-practices') }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold">
-                        Read More →
-                    </a>
-                </div>
-            </article>
-
-            <article class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop" alt="Related post" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                        Getting Started with Laravel Blade
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Learn the fundamentals of Laravel Blade templating engine and how to create dynamic, reusable components.
-                    </p>
-                    <a href="{{ route('blog.show', 'getting-started-with-laravel-blade') }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold">
-                        Read More →
-                    </a>
-                </div>
-            </article>
+            @empty
+            <div class="col-span-full text-center py-8">
+                <p class="text-gray-500 dark:text-gray-400">{{ trans('messages.blog.no_related_posts') }}</p>
+            </div>
+            @endforelse
         </div>
     </div>
 </section>
@@ -118,7 +94,7 @@
 <section class="py-12 bg-white dark:bg-gray-800">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center">
-            <a href="{{ route('blog') }}" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold">
+            <a href="{{ route('blog', ['lang' => $language]) }}" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                 </svg>

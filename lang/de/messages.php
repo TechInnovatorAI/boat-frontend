@@ -26,6 +26,8 @@ return [
     'home.blog.subtitle' => 'Bleiben Sie mit den neuesten Bootstipps, Nachrichten und Einblicken unserer Experten auf dem Laufenden.',
     'home.blog.read_more' => 'Weiterlesen',
     'home.blog.view_all' => 'Alle Beiträge Anzeigen',
+    'home.blog.no_posts' => 'Keine Blog-Beiträge Verfügbar',
+    'home.blog.no_posts_desc' => 'Schauen Sie bald wieder vorbei für die neuesten Updates und Einblicke.',
     
     'home.cta.title' => 'Bereit zu Starten?',
     'home.cta.subtitle' => 'Treten Sie unserer Community heute bei und beginnen Sie Ihre Bootsreise mit Expertenberatung und Unterstützung.',
@@ -91,6 +93,9 @@ return [
     'blog.post.nav.back' => 'Zurück zum Blog',
     'blog.post.nav.share' => 'Teilen',
     'blog.post.nav.bookmark' => 'Lesezeichen',
+    'blog.no_related_posts' => 'Keine verwandten Artikel verfügbar.',
+    'blog.current_language' => 'Aktuelle Sprache',
+    'blog.posts_available' => 'Beiträge verfügbar',
 
     // Footer
     'footer.title' => 'Boat Website',

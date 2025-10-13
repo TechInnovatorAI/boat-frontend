@@ -26,6 +26,8 @@ return [
     'home.blog.subtitle' => 'Stay updated with the latest boating tips, news, and insights from our experts.',
     'home.blog.read_more' => 'Read More',
     'home.blog.view_all' => 'View All Posts',
+    'home.blog.no_posts' => 'No Blog Posts Available',
+    'home.blog.no_posts_desc' => 'Check back soon for the latest updates and insights.',
     
     'home.cta.title' => 'Ready to Get Started?',
     'home.cta.subtitle' => 'Join our community today and start your boating journey with expert guidance and support.',
@@ -91,6 +93,9 @@ return [
     'blog.post.nav.back' => 'Back to Blog',
     'blog.post.nav.share' => 'Share',
     'blog.post.nav.bookmark' => 'Bookmark',
+    'blog.no_related_posts' => 'No related posts available.',
+    'blog.current_language' => 'Current Language',
+    'blog.posts_available' => 'posts available',
 
     // Footer
     'footer.title' => 'Boat Website',

@@ -19,3 +19,4 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 // Blog Pages
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+

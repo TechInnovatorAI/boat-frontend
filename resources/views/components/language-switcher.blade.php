@@ -32,16 +32,6 @@
                     </svg>
                 @endif
             </a>
-            <a href="{{ route('lang.switch', 'es') }}" 
-               class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 {{ $currentLocale === 'es' ? 'bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-400' : '' }}">
-                <span class="mr-2">🇪🇸</span>
-                Español
-                @if($currentLocale === 'es')
-                    <svg class="w-4 h-4 ml-auto" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                    </svg>
-                @endif
-            </a>
             <a href="{{ route('lang.switch', 'fr') }}" 
                class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 {{ $currentLocale === 'fr' ? 'bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-400' : '' }}">
                 <span class="mr-2">🇫🇷</span>
@@ -67,16 +57,6 @@
                 <span class="mr-2">🇮🇹</span>
                 Italiano
                 @if($currentLocale === 'it')
-                    <svg class="w-4 h-4 ml-auto" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                    </svg>
-                @endif
-            </a>
-            <a href="{{ route('lang.switch', 'rm') }}" 
-               class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 {{ $currentLocale === 'rm' ? 'bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-400' : '' }}">
-                <span class="mr-2">🇨🇭</span>
-                Rumantsch
-                @if($currentLocale === 'rm')
                     <svg class="w-4 h-4 ml-auto" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>

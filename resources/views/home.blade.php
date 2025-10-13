@@ -88,54 +88,45 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @forelse($latestPosts as $post)
             <article class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop" alt="Blog post" class="w-full h-48 object-cover">
+                <img src="{{ $post['featured_image'] }}" alt="{{ $post['title'] }}" class="w-full h-48 object-cover">
                 <div class="p-6">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                        Getting Started with Laravel Blade
+                    <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
+                        <span>{{ $post['author'] }}</span>
+                        <span class="mx-2">•</span>
+                        <time datetime="{{ $post['published_at'] }}">{{ date('M j, Y', strtotime($post['published_at'])) }}</time>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2">
+                        {{ $post['title'] }}
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Learn the fundamentals of Laravel Blade templating engine and how to create dynamic, reusable components.
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+                        {{ $post['excerpt'] }}
                     </p>
-                    <a href="{{ route('blog.show', 'getting-started-with-laravel-blade') }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold">
+                    <a href="{{ route('blog.show', ['slug' => $post['slug'], 'lang' => $language]) }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold">
                         {{ trans('messages.home.blog.read_more') }} →
                     </a>
                 </div>
             </article>
-            
-            <article class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop" alt="Blog post" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                        Building Modern Web Applications
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Discover the latest trends and best practices for creating modern, responsive web applications.
-                    </p>
-                    <a href="{{ route('blog.show', 'building-modern-web-applications') }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold">
-                        {{ trans('messages.home.blog.read_more') }} →
-                    </a>
+            @empty
+            <div class="col-span-full text-center py-12">
+                <div class="text-gray-400 dark:text-gray-500 mb-4">
+                    <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
                 </div>
-            </article>
-            
-            <article class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop" alt="Blog post" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                        Laravel Best Practices
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Essential best practices for Laravel development to write clean, maintainable code.
-                    </p>
-                    <a href="{{ route('blog.show', 'laravel-best-practices') }}" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold">
-                        {{ trans('messages.home.blog.read_more') }} →
-                    </a>
-                </div>
-            </article>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                    {{ trans('messages.home.blog.no_posts') }}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    {{ trans('messages.home.blog.no_posts_desc') }}
+                </p>
+            </div>
+            @endforelse
         </div>
         
         <div class="text-center mt-12">
-            <a href="{{ route('blog') }}" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+            <a href="{{ route('blog', ['lang' => $language]) }}" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
                 {{ trans('messages.home.blog.view_all') }}
             </a>
         </div>
