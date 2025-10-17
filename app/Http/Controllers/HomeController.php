@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Services\BlogService;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -18,9 +18,9 @@ class HomeController extends Controller
     {
         // Get the current language
         $language = $request->get('lang', app()->getLocale());
-        
+
         // Validate language
-        if (!$this->blogService->isLanguageSupported($language)) {
+        if (! $this->blogService->isLanguageSupported($language)) {
             $language = 'en';
         }
 

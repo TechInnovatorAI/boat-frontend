@@ -12,7 +12,7 @@ return [
     'home.hero.subtitle' => 'La vostra destinazione definitiva per informazioni, servizi e comunità di barche. Scoprite il mondo della navigazione con noi.',
     'home.hero.explore_blog' => 'Esplora Blog',
     'home.hero.get_in_touch' => 'Mettiti in Contatto',
-    
+
     'home.features.title' => 'Perché Sceglierci',
     'home.features.subtitle' => 'Forniamo servizi e informazioni complete sulle barche per aiutarvi a navigare le acque con fiducia.',
     'home.features.expert.title' => 'Conoscenza Esperta',
@@ -21,12 +21,12 @@ return [
     'home.features.quality.description' => 'Siamo impegnati a fornire servizi di alta qualità che soddisfano le vostre esigenze di navigazione.',
     'home.features.community.title' => 'Comunità',
     'home.features.community.description' => 'Unitevi alla nostra vivace comunità di appassionati di barche e condividete le vostre esperienze.',
-    
+
     'home.blog.title' => 'Ultimi dal Nostro Blog',
     'home.blog.subtitle' => 'Rimanete aggiornati con i più recenti consigli, notizie e approfondimenti di navigazione dai nostri esperti.',
     'home.blog.read_more' => 'Leggi di Più',
     'home.blog.view_all' => 'Visualizza Tutti gli Articoli',
-    
+
     'home.cta.title' => 'Pronti a Iniziare?',
     'home.cta.subtitle' => 'Unitevi alla nostra comunità oggi e iniziate il vostro viaggio di navigazione con la guida e il supporto di esperti.',
     'home.cta.contact' => 'Contattaci Ora',
@@ -44,7 +44,7 @@ return [
     'contact.form.required' => 'Questo campo è obbligatorio.',
     'contact.form.email_invalid' => 'Inserite un indirizzo email valido.',
     'contact.form.max_length' => 'Questo campo non può superare :max caratteri.',
-    
+
     'contact.info.title' => 'Mettiti in Contatto',
     'contact.info.subtitle' => 'Siamo qui per aiutarvi con tutte le vostre domande di navigazione. Contattateci attraverso uno dei canali sottostanti.',
     'contact.info.email' => 'Email',
@@ -52,7 +52,7 @@ return [
     'contact.info.address' => 'Indirizzo',
     'contact.info.jira.title' => '🚀 Integrazione Futura Jira',
     'contact.info.jira.description' => 'Questo modulo di contatto è preparato per la futura integrazione con Jira Service Management. Tutti i messaggi inviati saranno automaticamente convertiti in ticket Jira per un tracciamento e gestione efficienti.',
-    
+
     'contact.faq.title' => 'Domande Frequenti',
     'contact.faq.subtitle' => 'Trovate risposte alle domande comuni sui nostri servizi.',
     'contact.faq.response.title' => 'Quanto velocemente rispondete alle richieste?',

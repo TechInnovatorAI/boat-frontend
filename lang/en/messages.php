@@ -12,7 +12,7 @@ return [
     'home.hero.subtitle' => 'Your ultimate destination for boat information, services, and community. Discover the world of boating with us.',
     'home.hero.explore_blog' => 'Explore Blog',
     'home.hero.get_in_touch' => 'Get in Touch',
-    
+
     'home.features.title' => 'Why Choose Us',
     'home.features.subtitle' => 'We provide comprehensive boat services and information to help you navigate the waters with confidence.',
     'home.features.expert.title' => 'Expert Knowledge',
@@ -21,14 +21,14 @@ return [
     'home.features.quality.description' => 'We\'re committed to providing high-quality services that meet your boating needs.',
     'home.features.community.title' => 'Community',
     'home.features.community.description' => 'Join our vibrant community of boat enthusiasts and share your experiences.',
-    
+
     'home.blog.title' => 'Latest from Our Blog',
     'home.blog.subtitle' => 'Stay updated with the latest boating tips, news, and insights from our experts.',
     'home.blog.read_more' => 'Read More',
     'home.blog.view_all' => 'View All Posts',
     'home.blog.no_posts' => 'No Blog Posts Available',
     'home.blog.no_posts_desc' => 'Check back soon for the latest updates and insights.',
-    
+
     'home.cta.title' => 'Ready to Get Started?',
     'home.cta.subtitle' => 'Join our community today and start your boating journey with expert guidance and support.',
     'home.cta.contact' => 'Contact Us Now',
@@ -47,7 +47,7 @@ return [
     'contact.form.required' => 'This field is required.',
     'contact.form.email_invalid' => 'Please enter a valid email address.',
     'contact.form.max_length' => 'This field cannot exceed :max characters.',
-    
+
     'contact.info.title' => 'Get in Touch',
     'contact.info.subtitle' => 'We\'re here to help with all your boating questions and needs. Reach out to us through any of the channels below.',
     'contact.info.email' => 'Email',
@@ -55,7 +55,7 @@ return [
     'contact.info.address' => 'Address',
     'contact.info.jira.title' => '🚀 Future Jira Integration',
     'contact.info.jira.description' => 'This contact form is prepared for future integration with Jira Service Management. All submitted messages will be automatically converted into Jira tickets for efficient tracking and management.',
-    
+
     'contact.faq.title' => 'Frequently Asked Questions',
     'contact.faq.subtitle' => 'Find answers to common questions about our services.',
     'contact.faq.response.title' => 'How quickly do you respond to inquiries?',

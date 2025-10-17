@@ -12,7 +12,7 @@ return [
     'home.hero.subtitle' => 'Votre destination ultime pour les informations, services et communauté de bateaux. Découvrez le monde de la navigation avec nous.',
     'home.hero.explore_blog' => 'Explorer le Blog',
     'home.hero.get_in_touch' => 'Nous Contacter',
-    
+
     'home.features.title' => 'Pourquoi Nous Choisir',
     'home.features.subtitle' => 'Nous fournissons des services et informations complets sur les bateaux pour vous aider à naviguer en toute confiance.',
     'home.features.expert.title' => 'Connaissance Expert',
@@ -21,14 +21,14 @@ return [
     'home.features.quality.description' => 'Nous nous engageons à fournir des services de haute qualité qui répondent à vos besoins de navigation.',
     'home.features.community.title' => 'Communauté',
     'home.features.community.description' => 'Rejoignez notre communauté dynamique d\'enthousiastes de bateaux et partagez vos expériences.',
-    
+
     'home.blog.title' => 'Dernières de Notre Blog',
     'home.blog.subtitle' => 'Restez à jour avec les derniers conseils, nouvelles et informations de navigation de nos experts.',
     'home.blog.read_more' => 'Lire Plus',
     'home.blog.view_all' => 'Voir Tous les Articles',
     'home.blog.no_posts' => 'Aucun Article de Blog Disponible',
     'home.blog.no_posts_desc' => 'Revenez bientôt pour les dernières mises à jour et informations.',
-    
+
     'home.cta.title' => 'Prêt à Commencer?',
     'home.cta.subtitle' => 'Rejoignez notre communauté aujourd\'hui et commencez votre voyage de navigation avec des conseils et un soutien d\'experts.',
     'home.cta.contact' => 'Nous Contacter Maintenant',
@@ -47,7 +47,7 @@ return [
     'contact.form.required' => 'Ce champ est obligatoire.',
     'contact.form.email_invalid' => 'Veuillez entrer une adresse email valide.',
     'contact.form.max_length' => 'Ce champ ne peut pas dépasser :max caractères.',
-    
+
     'contact.info.title' => 'Nous Contacter',
     'contact.info.subtitle' => 'Nous sommes là pour vous aider avec toutes vos questions de navigation. Contactez-nous par l\'un des canaux ci-dessous.',
     'contact.info.email' => 'Email',
@@ -55,7 +55,7 @@ return [
     'contact.info.address' => 'Adresse',
     'contact.info.jira.title' => '🚀 Intégration Future Jira',
     'contact.info.jira.description' => 'Ce formulaire de contact est préparé pour une future intégration avec Jira Service Management. Tous les messages soumis seront automatiquement convertis en tickets Jira pour un suivi et une gestion efficaces.',
-    
+
     'contact.faq.title' => 'Questions Fréquemment Posées',
     'contact.faq.subtitle' => 'Trouvez des réponses aux questions courantes sur nos services.',
     'contact.faq.response.title' => 'À quelle rapidité répondez-vous aux demandes?',

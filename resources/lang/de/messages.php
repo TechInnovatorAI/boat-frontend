@@ -12,7 +12,7 @@ return [
     'home.hero.subtitle' => 'Ihr ultimatives Ziel für Bootsinformationen, Dienstleistungen und Community. Entdecken Sie die Welt des Bootfahrens mit uns.',
     'home.hero.explore_blog' => 'Blog Erkunden',
     'home.hero.get_in_touch' => 'Kontakt Aufnehmen',
-    
+
     'home.features.title' => 'Warum Uns Wählen',
     'home.features.subtitle' => 'Wir bieten umfassende Bootsdienstleistungen und Informationen, um Ihnen zu helfen, die Gewässer mit Vertrauen zu navigieren.',
     'home.features.expert.title' => 'Expertenwissen',
@@ -21,12 +21,12 @@ return [
     'home.features.quality.description' => 'Wir sind verpflichtet, hochwertige Dienstleistungen zu bieten, die Ihren Bootsbedürfnissen entsprechen.',
     'home.features.community.title' => 'Community',
     'home.features.community.description' => 'Treten Sie unserer lebendigen Community von Bootsenthusiasten bei und teilen Sie Ihre Erfahrungen.',
-    
+
     'home.blog.title' => 'Neueste von Unserem Blog',
     'home.blog.subtitle' => 'Bleiben Sie mit den neuesten Bootstipps, Nachrichten und Einblicken unserer Experten auf dem Laufenden.',
     'home.blog.read_more' => 'Weiterlesen',
     'home.blog.view_all' => 'Alle Beiträge Anzeigen',
-    
+
     'home.cta.title' => 'Bereit zu Starten?',
     'home.cta.subtitle' => 'Treten Sie unserer Community heute bei und beginnen Sie Ihre Bootsreise mit Expertenberatung und Unterstützung.',
     'home.cta.contact' => 'Jetzt Kontaktieren',
@@ -44,7 +44,7 @@ return [
     'contact.form.required' => 'Dieses Feld ist erforderlich.',
     'contact.form.email_invalid' => 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
     'contact.form.max_length' => 'Dieses Feld darf :max Zeichen nicht überschreiten.',
-    
+
     'contact.info.title' => 'Kontakt Aufnehmen',
     'contact.info.subtitle' => 'Wir sind hier, um bei all Ihren Bootsfragen zu helfen. Kontaktieren Sie uns über einen der unten stehenden Kanäle.',
     'contact.info.email' => 'E-Mail',
@@ -52,7 +52,7 @@ return [
     'contact.info.address' => 'Adresse',
     'contact.info.jira.title' => '🚀 Zukünftige Jira-Integration',
     'contact.info.jira.description' => 'Dieses Kontaktformular ist für die zukünftige Integration mit Jira Service Management vorbereitet. Alle übermittelten Nachrichten werden automatisch in Jira-Tickets für effizientes Tracking und Management konvertiert.',
-    
+
     'contact.faq.title' => 'Häufig Gestellte Fragen',
     'contact.faq.subtitle' => 'Finden Sie Antworten auf häufige Fragen zu unseren Dienstleistungen.',
     'contact.faq.response.title' => 'Wie schnell antworten Sie auf Anfragen?',

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\BlogService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Validation\ValidationException;
-use App\Services\BlogService;
 
 class BlogController extends Controller
 {
@@ -22,13 +21,13 @@ class BlogController extends Controller
     public function index(Request $request)
     {
         $request->validate([
-            'lang' => 'sometimes|string|in:en,fr,de,it'
+            'lang' => 'sometimes|string|in:en,fr,de,it',
         ]);
 
         $language = $request->get('lang', app()->getLocale());
-        
+
         // Validate language
-        if (!$this->blogService->isLanguageSupported($language)) {
+        if (! $this->blogService->isLanguageSupported($language)) {
             $language = 'en';
         }
 
@@ -37,9 +36,9 @@ class BlogController extends Controller
         } catch (\Exception $e) {
             Log::error('Failed to retrieve blog posts', [
                 'language' => $language,
-                'error' => $e->getMessage()
+                'error' => $e->getMessage(),
             ]);
-            
+
             $posts = [];
         }
 
@@ -53,9 +52,9 @@ class BlogController extends Controller
     {
         // Get language from request parameter or session
         $language = $request->get('lang', session('locale', app()->getLocale()));
-        
+
         // Validate language
-        if (!$this->blogService->isLanguageSupported($language)) {
+        if (! $this->blogService->isLanguageSupported($language)) {
             $language = 'en';
         }
 
@@ -65,7 +64,7 @@ class BlogController extends Controller
         try {
             $post = $this->blogService->getPost($slug, $language);
 
-            if (!$post) {
+            if (! $post) {
                 // Try to find the post in any language
                 $allLanguages = $this->blogService->getSupportedLanguages();
                 foreach ($allLanguages as $lang) {
@@ -75,15 +74,15 @@ class BlogController extends Controller
                         break;
                     }
                 }
-                
-                if (!$post) {
+
+                if (! $post) {
                     abort(404, 'Blog post not found');
                 }
             }
 
             // Get available languages for this post
             $availableLanguages = $this->blogService->getAvailableLanguages($slug);
-            
+
             // Get related posts
             $relatedPosts = $this->blogService->getRelatedPosts($slug, $language, 3);
 
@@ -93,9 +92,9 @@ class BlogController extends Controller
                 'slug' => $slug,
                 'language' => $language,
                 'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString()
+                'trace' => $e->getTraceAsString(),
             ]);
-            
+
             abort(500, 'Unable to load blog post');
         }
     }
@@ -108,12 +107,12 @@ class BlogController extends Controller
         // Only remove truly dangerous characters, keep hyphens and underscores
         $slug = trim($slug);
         $slug = preg_replace('/[^a-zA-Z0-9\-_]/', '', $slug);
-        
+
         // Ensure it's not empty
         if (empty($slug)) {
             abort(404, 'Invalid blog post identifier');
         }
-        
+
         return $slug;
     }
 }

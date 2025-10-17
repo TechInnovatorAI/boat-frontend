@@ -2,16 +2,18 @@
 
 namespace App\Services;
 
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
-use Illuminate\Support\Collection;
 
 class BlogService
 {
     protected string $contentPath;
+
     protected array $supportedLanguages = ['en', 'fr', 'de', 'it'];
+
     protected int $cacheTtl = 3600; // 1 hour
 
     public function __construct()
@@ -28,9 +30,9 @@ class BlogService
         $cacheKey = "blog_posts_{$language}";
 
         return Cache::remember($cacheKey, $this->cacheTtl, function () use ($language) {
-            $postsPath = $this->contentPath . '/' . $language;
-            
-            if (!File::exists($postsPath)) {
+            $postsPath = $this->contentPath.'/'.$language;
+
+            if (! File::exists($postsPath)) {
                 return [];
             }
 
@@ -62,14 +64,14 @@ class BlogService
         $cacheKey = "blog_post_{$slug}_{$language}";
 
         return Cache::remember($cacheKey, $this->cacheTtl, function () use ($slug, $language) {
-            $postsPath = $this->contentPath . '/' . $language;
-            
-            if (!File::exists($postsPath)) {
+            $postsPath = $this->contentPath.'/'.$language;
+
+            if (! File::exists($postsPath)) {
                 return null;
             }
 
             $files = $this->getMarkdownFiles($postsPath);
-            
+
             foreach ($files as $file) {
                 $post = $this->parseMarkdownFile($file->getPathname());
                 if ($post && $post['slug'] === $slug) {
@@ -90,7 +92,7 @@ class BlogService
 
         return Cache::remember($cacheKey, $this->cacheTtl, function () use ($slug) {
             $availableLanguages = [];
-            
+
             foreach ($this->supportedLanguages as $language) {
                 $post = $this->getPost($slug, $language);
                 if ($post) {
@@ -108,7 +110,7 @@ class BlogService
     public function getRelatedPosts(string $currentSlug, string $language = 'en', int $limit = 3): array
     {
         $posts = $this->getPosts($language);
-        
+
         // Filter out current post and limit results
         $relatedPosts = array_filter($posts, function ($post) use ($currentSlug) {
             return $post['slug'] !== $currentSlug;
@@ -129,6 +131,7 @@ class BlogService
                 });
         } catch (\Exception $e) {
             Log::warning("Failed to read directory: {$directory}", ['error' => $e->getMessage()]);
+
             return collect();
         }
     }
@@ -139,21 +142,21 @@ class BlogService
     protected function parseMarkdownFile(string $filePath): ?array
     {
         try {
-            if (!File::exists($filePath)) {
+            if (! File::exists($filePath)) {
                 return null;
             }
 
             $content = File::get($filePath);
-            
+
             if (empty($content)) {
                 return null;
             }
-            
+
             // Extract front matter (YAML between --- markers)
             if (preg_match('/^---\s*\n(.*?)\n---\s*\n(.*)$/s', $content, $matches)) {
                 $frontMatter = $matches[1];
                 $markdownContent = $matches[2];
-                
+
                 $metadata = $this->parseYaml($frontMatter);
             } else {
                 // No front matter, try to extract from filename
@@ -162,7 +165,7 @@ class BlogService
                 $markdownContent = $content;
             }
 
-            if (!$metadata) {
+            if (! $metadata) {
                 return null;
             }
 
@@ -170,7 +173,7 @@ class BlogService
             $htmlContent = $this->markdownToHtml($markdownContent);
 
             // Generate slug if not provided
-            if (!isset($metadata['slug'])) {
+            if (! isset($metadata['slug'])) {
                 $metadata['slug'] = $this->generateSlug($metadata['title'] ?? $filename);
             }
 
@@ -184,6 +187,7 @@ class BlogService
             return $metadata;
         } catch (\Exception $e) {
             Log::error("Failed to parse markdown file: {$filePath}", ['error' => $e->getMessage()]);
+
             return null;
         }
     }
@@ -206,7 +210,7 @@ class BlogService
                 [$key, $value] = explode(':', $line, 2);
                 $key = trim($key);
                 $value = trim($value);
-                
+
                 // Remove quotes if present
                 if ((str_starts_with($value, '"') && str_ends_with($value, '"')) ||
                     (str_starts_with($value, "'") && str_ends_with($value, "'"))) {
@@ -233,11 +237,12 @@ class BlogService
         // Simple array parsing for tags like ["tag1", "tag2"]
         if (preg_match('/\[(.*?)\]/', $value, $matches)) {
             $items = explode(',', $matches[1]);
-            return array_map('trim', array_map(function($item) {
+
+            return array_map('trim', array_map(function ($item) {
                 return trim($item, '"\'');
             }, $items));
         }
-        
+
         return [];
     }
 
@@ -307,6 +312,7 @@ class BlogService
     protected function generateExcerpt(string $html, int $length = 150): string
     {
         $text = strip_tags($html);
+
         return Str::limit($text, $length);
     }
 
@@ -358,7 +364,7 @@ class BlogService
         foreach ($this->supportedLanguages as $language) {
             Cache::forget("blog_posts_{$language}");
         }
-        
+
         // Clear individual post caches (this is a simplified approach)
         // In production, you might want to track cache keys more precisely
         Cache::flush();
@@ -376,7 +382,7 @@ class BlogService
     /**
      * Clear cache for specific post
      */
-    public function clearPostCache(string $slug, string $language = null): void
+    public function clearPostCache(string $slug, ?string $language = null): void
     {
         if ($language) {
             $language = $this->validateLanguage($language);
@@ -387,7 +393,7 @@ class BlogService
                 Cache::forget("blog_post_{$slug}_{$lang}");
             }
         }
-        
+
         Cache::forget("blog_available_languages_{$slug}");
     }
 }

@@ -2,14 +2,13 @@
 
 namespace App\Services;
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
 use Illuminate\Support\Facades\Log;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class MailService
 {
-    static public function sendContactMail($to, $subject, $body)
+    public static function sendContactMail($to, $subject, $body)
     {
         $mail = new PHPMailer(true);
 
@@ -30,12 +29,14 @@ class MailService
             // Content
             $mail->isHTML(true);
             $mail->Subject = $subject;
-            $mail->Body    = $body;
+            $mail->Body = $body;
 
             $mail->send();
+
             return true;
         } catch (Exception $e) {
-            Log::error('PHPMailer Error: ' . $mail->ErrorInfo);
+            Log::error('PHPMailer Error: '.$mail->ErrorInfo);
+
             return false;
         }
     }

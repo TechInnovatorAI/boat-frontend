@@ -12,7 +12,7 @@ return [
     'home.hero.subtitle' => 'Vossa destinaziun finala per infurmaziuns, servetschs e communitad da barcas. Scuvrì il mund da la navigaziun cun nus.',
     'home.hero.explore_blog' => 'Explorar Blog',
     'home.hero.get_in_touch' => 'Ponzi in Contact',
-    
+
     'home.features.title' => 'Perquai che Nus',
     'home.features.subtitle' => 'Nus purschain servetschs e infurmaziuns cumplettas da barcas per gidar a navigar las aua cun fidaivladad.',
     'home.features.expert.title' => 'Savida d\'Expert',
@@ -21,12 +21,12 @@ return [
     'home.features.quality.description' => 'Nus esan cumminads a purschar servetschs da qualitad auta che cuntentan vossas basegns da navigaziun.',
     'home.features.community.title' => 'Comunitad',
     'home.features.community.description' => 'Unì a nossa communitad vivanta d\'entusiasts da barcas e parta vossas experientschas.',
-    
+
     'home.blog.title' => 'Ultims da Noss Blog',
     'home.blog.subtitle' => 'Reste actualisads cun ils ultims tips, novitads e perscrutaziuns da navigaziun da noss experts.',
     'home.blog.read_more' => 'Leger Dapli',
     'home.blog.view_all' => 'Vair Tut ils Artitgels',
-    
+
     'home.cta.title' => 'Pront da Cumenzar?',
     'home.cta.subtitle' => 'Unì a nossa communitad oz e cumenza voss viadi da navigaziun cun cussegls d\'expert e sustegn.',
     'home.cta.contact' => 'Contactar Nus Uschè',
@@ -44,7 +44,7 @@ return [
     'contact.form.required' => 'Quest champ è obligatoric.',
     'contact.form.email_invalid' => 'Per plaschair endata ina adressa email valida.',
     'contact.form.max_length' => 'Quest champ na po betg surpassar :max caracters.',
-    
+
     'contact.info.title' => 'Ponzi in Contact',
     'contact.info.subtitle' => 'Nus esan qua per gidar cun tut vossas dumondas da navigaziun. Contactar nus tras in dals canals sutvart.',
     'contact.info.email' => 'Email',
@@ -52,7 +52,7 @@ return [
     'contact.info.address' => 'Adressa',
     'contact.info.jira.title' => '🚀 Integraziun Futura Jira',
     'contact.info.jira.description' => 'Quest formulari da contact è preparà per ina integraziun futura cun Jira Service Management. Tut ils messages tramess vegnan automaticamain convertids en tickets Jira per in seguiment e manaschi efficients.',
-    
+
     'contact.faq.title' => 'Dumondas Frequentas',
     'contact.faq.subtitle' => 'Chatta rispostas a dumondas cumunas davart noss servetschs.',
     'contact.faq.response.title' => 'Co svelt respundais vus a dumondas?',
