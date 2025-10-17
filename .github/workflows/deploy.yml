@@ -61,5 +61,8 @@ jobs:
 
             php artisan key:generate &&
             php artisan migrate --force &&
-            php artisan optimize
+            php artisan optimize &&
+
+            sudo chown -R www-data:www-data storage bootstrap/cache &&
+            sudo chmod -R 775 storage bootstrap/cache
           "
