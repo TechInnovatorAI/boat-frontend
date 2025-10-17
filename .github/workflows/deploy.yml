@@ -109,6 +109,9 @@ jobs:
 
     - name: 📦 Create deployment artifact
       run: |
+        # Wait a moment for any file operations to complete
+        sleep 2
+        
         tar -czf ${{ env.APP_NAME }}-$(date +%Y%m%d-%H%M%S).tar.gz \
           --exclude='.git' \
           --exclude='.github' \
@@ -122,6 +125,11 @@ jobs:
           --exclude='.gitignore' \
           --exclude='.gitattributes' \
           --exclude='scripts' \
+          --exclude='storage/logs' \
+          --exclude='storage/framework/cache' \
+          --exclude='storage/framework/sessions' \
+          --exclude='storage/framework/views' \
+          --exclude='bootstrap/cache' \
           .
 
     - name: 🔧 Prepare server for deployment
