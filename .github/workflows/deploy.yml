@@ -51,7 +51,7 @@ jobs:
           echo "🚀 Deploying to EC2..."
           ssh -o StrictHostKeyChecking=no -i private_key.pem $USER@$HOST "
             cd /var/www/boat-website &&
-            git pull origin master &&
+            git pull origin C0-248-1.0.0-Web-Initialize &&
             composer install --no-dev --optimize-autoloader &&
             php artisan key:generate &&
             php artisan migrate --force &&
