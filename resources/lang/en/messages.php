@@ -2,7 +2,7 @@
 
 return [
     // Navigation
-    'nav.home' => 'Home_Test1',
+    'nav.home' => 'Home',
     'nav.blog' => 'Blog',
     'nav.contact' => 'Contact',
     'nav.language' => 'Language',
