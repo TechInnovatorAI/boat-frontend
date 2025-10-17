@@ -109,28 +109,38 @@ jobs:
 
     - name: 📦 Create deployment artifact
       run: |
-        # Wait a moment for any file operations to complete
-        sleep 2
+        # Create a temporary directory and copy files there
+        mkdir -p /tmp/deploy-source
         
-        tar -czf ${{ env.APP_NAME }}-$(date +%Y%m%d-%H%M%S).tar.gz \
-          --exclude='.git' \
-          --exclude='.github' \
-          --exclude='node_modules' \
-          --exclude='tests' \
-          --exclude='.env.example' \
-          --exclude='docker-compose.mariadb.yml' \
-          --exclude='compose.yaml' \
-          --exclude='*.md' \
-          --exclude='phpunit.xml' \
-          --exclude='.gitignore' \
-          --exclude='.gitattributes' \
-          --exclude='scripts' \
-          --exclude='storage/logs' \
-          --exclude='storage/framework/cache' \
-          --exclude='storage/framework/sessions' \
-          --exclude='storage/framework/views' \
-          --exclude='bootstrap/cache' \
-          .
+        # Copy files excluding problematic directories
+        rsync -av --exclude='.git' \
+                  --exclude='.github' \
+                  --exclude='node_modules' \
+                  --exclude='tests' \
+                  --exclude='.env.example' \
+                  --exclude='docker-compose.mariadb.yml' \
+                  --exclude='compose.yaml' \
+                  --exclude='*.md' \
+                  --exclude='phpunit.xml' \
+                  --exclude='.gitignore' \
+                  --exclude='.gitattributes' \
+                  --exclude='scripts' \
+                  --exclude='storage/logs' \
+                  --exclude='storage/framework/cache' \
+                  --exclude='storage/framework/sessions' \
+                  --exclude='storage/framework/views' \
+                  --exclude='bootstrap/cache' \
+                  ./ /tmp/deploy-source/
+        
+        # Create archive from the copied directory
+        cd /tmp
+        tar -czf ${{ env.APP_NAME }}-$(date +%Y%m%d-%H%M%S).tar.gz deploy-source/
+        
+        # Move archive back to working directory
+        mv ${{ env.APP_NAME }}-*.tar.gz ./
+        
+        # Clean up
+        rm -rf /tmp/deploy-source
 
     - name: 🔧 Prepare server for deployment
       uses: appleboy/ssh-action@v1.0.3
