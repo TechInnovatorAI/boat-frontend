@@ -68,6 +68,9 @@ jobs:
             php artisan migrate --force &&
             php artisan optimize &&
 
+            mkdir -p public/build &&
+            sudo chown -R ubuntu:www-data public/build &&
+            sudo chmod -R 775 public/build &&
             curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&
             sudo apt-get install -y nodejs &&
             npm install &&
