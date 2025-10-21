@@ -122,7 +122,7 @@
                         </div>
                         <div>
                             <h4 class="text-lg font-semibold text-gray-900 dark:text-white">{{ trans('messages.contact.info.email') }}</h4>
-                            <p class="text-gray-600 dark:text-gray-300">info@boatwebsite.com</p>
+                            <p class="text-gray-600 dark:text-gray-300">mt@cat0.app</p>
                             <p class="text-gray-600 dark:text-gray-300">support@boatwebsite.com</p>
                         </div>
                     </div>
