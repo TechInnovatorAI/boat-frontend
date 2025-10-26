@@ -3,8 +3,10 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JiraWebhookController;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
 
 // Language switching
 Route::get('/lang/{locale}', [LanguageController::class, 'switch'])->name('lang.switch');
@@ -19,3 +21,14 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 // Blog Pages
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+
+// Jira Webhook (for receiving ticket updates)
+Route::post('/webhooks/jira', [JiraWebhookController::class, 'handle'])->name('webhook.jira');
+
+// Test webhook endpoint
+Route::post('/webhooks/test', function() {
+    Log::info('Test webhook received', [
+        'payload' => request()->all()
+    ]);
+    return response()->json(['status' => 'test success']);
+});

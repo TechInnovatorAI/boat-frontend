@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Services\MailService;
+use App\Services\JiraService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
@@ -38,13 +40,22 @@ class ContactController extends Controller
                 ->withInput();
         }
 
-        // TODO: Future Jira Service Management Integration
-        // This is where you would integrate with Jira Service Management
-        // For now, we'll just store the contact form data
-
-        // You can add Jira integration here later:
-        // $jiraService = new JiraServiceManagement();
-        // $jiraService->createTicket($request->all());
+        // Create Jira Service Management ticket
+        $jiraService = new JiraService();
+        $jiraTicket = $jiraService->createServiceRequest($request->all());
+        
+        $ticketCreated = false;
+        if ($jiraTicket) {
+            $ticketCreated = true;
+            Log::info('Jira ticket created successfully', [
+                'ticket_key' => $jiraTicket['issueKey'] ?? 'Unknown',
+                'customer_email' => $request->email
+            ]);
+        } else {
+            Log::warning('Failed to create Jira ticket', [
+                'customer_email' => $request->email
+            ]);
+        }
 
         // Send email to admin
         $subject = "New Contact Message from {$request->name}";
@@ -58,9 +69,15 @@ class ContactController extends Controller
 
         $sent = MailService::sendContactMail(config('mail.from.address'), $subject, $body);
 
+        // Prepare success message
+        $successMessage = trans('messages.contact.form.success');
+        if ($ticketCreated && isset($jiraTicket['issueKey'])) {
+            $successMessage .= ' Your support ticket ' . $jiraTicket['issueKey'] . ' has been created.';
+        }
+
         return redirect()->route('contact')
             ->with($sent ? 'success' : 'error', $sent
-                ? trans('messages.contact.form.success')
+                ? $successMessage
                 : trans('messages.contact.form.error'));
     }
 }

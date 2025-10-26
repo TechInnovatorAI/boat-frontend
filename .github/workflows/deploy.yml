@@ -2,7 +2,7 @@ name: Laravel CI/CD
 
 on:
   push:
-    branches: [ "C0-248-1.0.0-Web-Initialize" ]
+    branches: [ "dev" ]
 
 jobs:
   deploy:

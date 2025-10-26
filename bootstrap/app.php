@@ -14,6 +14,14 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             \App\Http\Middleware\SetLocale::class,
         ]);
+        
+        // Exclude webhook routes from CSRF protection
+        $middleware->validateCsrfTokens(except: [
+            'webhooks/*',
+        ]);
+        
+        // Trust all proxies (for ngrok and other reverse proxies)
+        $middleware->trustProxies(at: '*');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

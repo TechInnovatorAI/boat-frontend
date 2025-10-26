@@ -35,4 +35,13 @@ return [
         ],
     ],
 
+    'jira' => [
+        'base_url' => env('JIRA_BASE_URL'),
+        'username' => env('JIRA_USERNAME'),
+        'api_token' => env('JIRA_API_TOKEN'),
+        'project_key' => env('JIRA_PROJECT_KEY', 'BOAT-CSM'),
+        'service_desk_id' => env('JIRA_SERVICE_DESK_ID'),
+        'request_type_id' => env('JIRA_REQUEST_TYPE_ID'),
+    ],
+
 ];
