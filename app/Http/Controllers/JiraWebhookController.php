@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\MailService;
+use App\Models\JiraIssue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -16,7 +17,9 @@ class JiraWebhookController extends Controller
     {
         try {
             Log::info('Jira webhook received', [
-                'payload' => $request->all()
+                'headers' => $request->headers->all(),
+                'payload' => $request->all(),
+                'timestamp' => now()->toISOString()
             ]);
             // Validate the webhook payload
             $validator = Validator::make($request->all(), [
@@ -53,7 +56,13 @@ class JiraWebhookController extends Controller
                     break;
                 
                 case 'jira:issue_updated':
-                    $this->handleIssueUpdated($issue, $fields, $request->input('changelog', []));
+                    // Check if this is actually a comment event
+                    $changelog = $request->input('changelog', []);
+                    if ($this->isCommentUpdate($changelog)) {
+                        $this->handleIssueCommented($issue, $fields);
+                    } else {
+                        $this->handleIssueUpdated($issue, $fields, $changelog);
+                    }
                     break;
                 
                 case 'jira:issue_commented':
@@ -90,6 +99,9 @@ class JiraWebhookController extends Controller
             'summary' => $fields['summary'] ?? 'No summary'
         ]);
         
+        // Update database if issue exists
+        $this->updateJiraIssueInDatabase($issue, $fields);
+        
         // Send confirmation email to customer when ticket is created
         $this->sendIssueCreatedNotificationEmail($issue, $fields);
     }
@@ -105,6 +117,9 @@ class JiraWebhookController extends Controller
             'issue_key' => $issueKey,
             'changelog_items' => count($changelog['items'] ?? [])
         ]);
+        
+        // Update database with latest issue data
+        $this->updateJiraIssueInDatabase($issue, $fields);
         
         // Check if status changed to "Resolved" or "Closed"
         $statusChanged = $this->getStatusChange($changelog);
@@ -163,6 +178,24 @@ class JiraWebhookController extends Controller
                 'issue_key' => $issueKey
             ]);
         }
+    }
+
+    /**
+     * Check if the update is actually a comment
+     */
+    private function isCommentUpdate($changelog)
+    {
+        if (empty($changelog['items'])) {
+            return false;
+        }
+
+        foreach ($changelog['items'] as $item) {
+            if ($item['field'] === 'comment') {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -573,5 +606,44 @@ class JiraWebhookController extends Controller
         }
         
         return null;
+    }
+
+    /**
+     * Update Jira issue in database
+     */
+    private function updateJiraIssueInDatabase($issue, $fields)
+    {
+        try {
+            $jiraIssue = JiraIssue::where('jira_issue_key', $issue['key'])->first();
+            
+            if ($jiraIssue) {
+                $jiraIssue->update([
+                    'status' => $fields['status']['name'] ?? $jiraIssue->status,
+                    'priority' => $fields['priority']['name'] ?? $jiraIssue->priority,
+                    'assignee' => $fields['assignee']['displayName'] ?? $jiraIssue->assignee,
+                    'description' => $fields['description'] ?? $jiraIssue->description,
+                    'jira_data' => array_merge($jiraIssue->jira_data ?? [], [
+                        'issue' => $issue,
+                        'fields' => $fields
+                    ]),
+                    'jira_updated_at' => now(),
+                ]);
+                
+                Log::info('Jira issue updated in database', [
+                    'jira_issue_key' => $issue['key'],
+                    'database_id' => $jiraIssue->id,
+                    'new_status' => $fields['status']['name'] ?? 'unchanged'
+                ]);
+            } else {
+                Log::warning('Jira issue not found in database', [
+                    'jira_issue_key' => $issue['key']
+                ]);
+            }
+        } catch (\Exception $e) {
+            Log::error('Failed to update Jira issue in database', [
+                'jira_issue_key' => $issue['key'],
+                'error' => $e->getMessage()
+            ]);
+        }
     }
 }

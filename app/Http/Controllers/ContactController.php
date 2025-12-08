@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\MailService;
 use App\Services\JiraService;
+use App\Models\JiraIssue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -47,6 +48,34 @@ class ContactController extends Controller
         $ticketCreated = false;
         if ($jiraTicket) {
             $ticketCreated = true;
+            
+            // Save Jira issue to database
+            try {
+                $jiraIssue = JiraIssue::create([
+                    'jira_issue_key' => $jiraTicket['issueKey'] ?? 'Unknown',
+                    'jira_issue_id' => $jiraTicket['issueId'] ?? null,
+                    'customer_name' => $request->name,
+                    'customer_email' => $request->email,
+                    'subject' => $request->subject,
+                    'message' => $request->message,
+                    'status' => JiraIssue::STATUS_TO_DO,
+                    'description' => $jiraTicket['requestFieldValues'][0]['value'] ?? null,
+                    'jira_data' => $jiraTicket,
+                    'jira_created_at' => now(),
+                ]);
+                
+                Log::info('Jira issue saved to database', [
+                    'jira_issue_id' => $jiraIssue->id,
+                    'jira_issue_key' => $jiraIssue->jira_issue_key,
+                    'customer_email' => $request->email
+                ]);
+            } catch (\Exception $e) {
+                Log::error('Failed to save Jira issue to database', [
+                    'error' => $e->getMessage(),
+                    'customer_email' => $request->email
+                ]);
+            }
+            
             Log::info('Jira ticket created successfully', [
                 'ticket_key' => $jiraTicket['issueKey'] ?? 'Unknown',
                 'customer_email' => $request->email

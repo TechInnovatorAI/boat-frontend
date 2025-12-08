@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JiraWebhookController;
+use App\Http\Controllers\JiraIssueController;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
@@ -31,4 +32,13 @@ Route::post('/webhooks/test', function() {
         'payload' => request()->all()
     ]);
     return response()->json(['status' => 'test success']);
+});
+
+// Jira Issues Management (Admin routes)
+Route::prefix('admin/jira-issues')->name('jira-issues.')->group(function () {
+    Route::get('/', [JiraIssueController::class, 'index'])->name('index');
+    Route::get('/{id}', [JiraIssueController::class, 'show'])->name('show');
+    Route::get('/customer/{email}', [JiraIssueController::class, 'customerIssues'])->name('customer');
+    Route::get('/status/{status}', [JiraIssueController::class, 'issuesByStatus'])->name('status');
+    Route::get('/recent/{limit?}', [JiraIssueController::class, 'recentIssues'])->name('recent');
 });

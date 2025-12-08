@@ -5,6 +5,18 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+DROP TABLE IF EXISTS `blogs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `blogs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `cache`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
@@ -38,6 +50,33 @@ CREATE TABLE `failed_jobs` (
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `jira_issues`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `jira_issues` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `jira_issue_key` varchar(255) NOT NULL,
+  `jira_issue_id` varchar(255) DEFAULT NULL,
+  `customer_name` varchar(255) NOT NULL,
+  `customer_email` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `status` enum('To Do','In Progress','Resolved','Closed') NOT NULL DEFAULT 'To Do',
+  `priority` enum('High','Medium','Low') DEFAULT NULL,
+  `assignee` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `jira_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`jira_data`)),
+  `jira_created_at` timestamp NULL DEFAULT NULL,
+  `jira_updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `jira_issues_jira_issue_key_unique` (`jira_issue_key`),
+  KEY `jira_issues_customer_email_index` (`customer_email`),
+  KEY `jira_issues_status_index` (`status`),
+  KEY `jira_issues_jira_issue_key_index` (`jira_issue_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `job_batches`;
@@ -134,3 +173,7 @@ CREATE TABLE `users` (
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (1,'0001_01_01_000000_create_users_table',1);
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (2,'0001_01_01_000001_create_cache_table',1);
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (3,'0001_01_01_000002_create_jobs_table',1);
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (4,'2025_10_16_092116_create_blogs_table',2);
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (5,'2025_10_26_193000_create_jira_issues_table',3);
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (6,'2025_10_26_213412_update_jira_issues_table_contraints',4);
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES (7,'2025_10_26_220000_update_jira_issues_table_add_constraints',4);
