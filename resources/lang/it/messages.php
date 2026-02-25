@@ -1,0 +1,113 @@
+<?php
+
+return [
+    // Navigation
+    'nav.home' => 'Casa',
+    'nav.blog' => 'Blog',
+    'nav.contact' => 'Contatto',
+    'nav.language' => 'Lingua',
+
+    // Home Page
+    'home.hero.title' => 'Benvenuti su Boat Website',
+    'home.hero.subtitle' => 'La vostra destinazione definitiva per informazioni, servizi e comunità di barche. Scoprite il mondo della navigazione con noi.',
+    'home.hero.explore_blog' => 'Esplora Blog',
+    'home.hero.get_in_touch' => 'Mettiti in Contatto',
+
+    'home.features.title' => 'Perché Sceglierci',
+    'home.features.subtitle' => 'Forniamo servizi e informazioni complete sulle barche per aiutarvi a navigare le acque con fiducia.',
+    'home.features.expert.title' => 'Conoscenza Esperta',
+    'home.features.expert.description' => 'Il nostro team di esperti di navigazione fornisce informazioni accurate e aggiornate.',
+    'home.features.quality.title' => 'Servizio di Qualità',
+    'home.features.quality.description' => 'Siamo impegnati a fornire servizi di alta qualità che soddisfano le vostre esigenze di navigazione.',
+    'home.features.community.title' => 'Comunità',
+    'home.features.community.description' => 'Unitevi alla nostra vivace comunità di appassionati di barche e condividete le vostre esperienze.',
+
+    'home.blog.title' => 'Ultimi dal Nostro Blog',
+    'home.blog.subtitle' => 'Rimanete aggiornati con i più recenti consigli, notizie e approfondimenti di navigazione dai nostri esperti.',
+    'home.blog.read_more' => 'Leggi di Più',
+    'home.blog.view_all' => 'Visualizza Tutti gli Articoli',
+
+    'home.cta.title' => 'Pronti a Iniziare?',
+    'home.cta.subtitle' => 'Unitevi alla nostra comunità oggi e iniziate il vostro viaggio di navigazione con la guida e il supporto di esperti.',
+    'home.cta.contact' => 'Contattaci Ora',
+
+    // Contact Page
+    'contact.hero.title' => 'Contattaci',
+    'contact.hero.subtitle' => 'Mettetevi in contatto con il nostro team. Siamo qui per aiutarvi con tutte le vostre esigenze e domande di navigazione.',
+    'contact.form.title' => 'Inviaci un Messaggio',
+    'contact.form.name' => 'Nome Completo',
+    'contact.form.email' => 'Indirizzo Email',
+    'contact.form.subject' => 'Oggetto',
+    'contact.form.message' => 'Messaggio',
+    'contact.form.send' => 'Invia Messaggio',
+    'contact.form.success' => 'Grazie per il vostro messaggio! Vi risponderemo presto.',
+    'contact.form.required' => 'Questo campo è obbligatorio.',
+    'contact.form.email_invalid' => 'Inserite un indirizzo email valido.',
+    'contact.form.max_length' => 'Questo campo non può superare :max caratteri.',
+
+    'contact.info.title' => 'Mettiti in Contatto',
+    'contact.info.subtitle' => 'Siamo qui per aiutarvi con tutte le vostre domande di navigazione. Contattateci attraverso uno dei canali sottostanti.',
+    'contact.info.email' => 'Email',
+    'contact.info.phone' => 'Telefono',
+    'contact.info.address' => 'Indirizzo',
+    'contact.info.jira.title' => '🚀 Integrazione Futura Jira',
+    'contact.info.jira.description' => 'Questo modulo di contatto è preparato per la futura integrazione con Jira Service Management. Tutti i messaggi inviati saranno automaticamente convertiti in ticket Jira per un tracciamento e gestione efficienti.',
+
+    'contact.faq.title' => 'Domande Frequenti',
+    'contact.faq.subtitle' => 'Trovate risposte alle domande comuni sui nostri servizi.',
+    'contact.faq.response.title' => 'Quanto velocemente rispondete alle richieste?',
+    'contact.faq.response.answer' => 'Tipicamente rispondiamo a tutte le richieste entro 24 ore nei giorni lavorativi. Per questioni urgenti, chiamateci direttamente.',
+    'contact.faq.emergency.title' => 'Offrite servizi di emergenza?',
+    'contact.faq.emergency.answer' => 'Sì, forniamo supporto di emergenza 24/7 per problemi urgenti di navigazione. Contattate la nostra linea di emergenza per assistenza immediata.',
+    'contact.faq.info.title' => 'Quali informazioni devo includere nel mio messaggio?',
+    'contact.faq.info.answer' => 'Fornite quanti più dettagli possibili sulla vostra richiesta, incluso il tipo di barca, problemi specifici, e qualsiasi foto o documentazione pertinente.',
+
+    // Blog Page
+    'blog.hero.title' => 'Il Nostro Blog',
+    'blog.hero.subtitle' => 'Scoprite le ultime intuizioni, consigli e notizie dal mondo della navigazione e dello sviluppo web.',
+    'blog.newsletter.title' => 'Rimani Aggiornato',
+    'blog.newsletter.subtitle' => 'Iscrivetevi alla nostra newsletter per ricevere gli ultimi articoli del blog e consigli di navigazione nella vostra casella di posta.',
+    'blog.newsletter.placeholder' => 'Inserisci la tua email',
+    'blog.newsletter.subscribe' => 'Iscriviti',
+    'blog.read_more' => 'Leggi di Più',
+    'blog.by' => 'Di',
+    'blog.categories.title' => 'Esplora per Categoria',
+    'blog.categories.subtitle' => 'Trovate contenuti che corrispondono ai vostri interessi.',
+    'blog.categories.laravel' => 'Laravel',
+    'blog.categories.laravel.desc' => 'Consigli e tutorial di sviluppo Laravel',
+    'blog.categories.webdev' => 'Sviluppo Web',
+    'blog.categories.webdev.desc' => 'Pratiche moderne di sviluppo web',
+    'blog.categories.performance' => 'Prestazioni',
+    'blog.categories.performance.desc' => 'Consigli di ottimizzazione e prestazioni',
+    'blog.categories.best_practices' => 'Migliori Pratiche',
+    'blog.categories.best_practices.desc' => 'Standard del settore e migliori pratiche',
+
+    // Blog Post
+    'blog.post.related.title' => 'Articoli Correlati',
+    'blog.post.related.subtitle' => 'Continuate a esplorare il nostro blog con questi articoli correlati.',
+    'blog.post.author.about' => 'Su',
+    'blog.post.author.bio' => 'è uno sviluppatore appassionato ed entusiasta di navigazione con anni di esperienza nello sviluppo web e nelle attività marittime. Amano condividere conoscenze e aiutare gli altri a navigare le acque sia del coding che della navigazione.',
+    'blog.post.nav.back' => 'Torna al Blog',
+    'blog.post.nav.share' => 'Condividi',
+    'blog.post.nav.bookmark' => 'Segnalibro',
+
+    // Footer
+    'footer.title' => 'Boat Website',
+    'footer.description' => 'La vostra fonte affidabile per informazioni e servizi di barche.',
+    'footer.quick_links' => 'Link Rapidi',
+    'footer.contact_info' => 'Informazioni di Contatto',
+    'footer.copyright' => 'Tutti i diritti riservati.',
+
+    // Common
+    'common.loading' => 'Caricamento...',
+    'common.error' => 'Si è verificato un errore. Riprovate.',
+    'common.success' => 'Successo!',
+    'common.cancel' => 'Annulla',
+    'common.save' => 'Salva',
+    'common.edit' => 'Modifica',
+    'common.delete' => 'Elimina',
+    'common.confirm' => 'Conferma',
+    'common.back' => 'Indietro',
+    'common.next' => 'Avanti',
+    'common.previous' => 'Precedente',
+];
